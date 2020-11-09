@@ -75,17 +75,29 @@ Here is a list of some popular carriers. If you can't find your carrier on here 
 To send a text message and picture via email, you must use a MMS to email gateway. Just substitute a 10-digit cell number for ‘number’ for each carrier below:
 
 AT&T: number@mms.att.net
+
 T-Mobile: number@tmomail.net
+
 Verizon: number@vzwpix.com
+
 Sprint: number@pm.sprint.com
+
 XFinity Mobile: number@mypixmessages.com
+
 Virgin Mobile: number@vmpix.com
+
 Tracfone: number@mmst5.tracfone.com
+
 Metro PCS: number@mymetropcs.com
+
 Boost Mobile: number@myboostmobile.com
+
 Cricket: number@mms.cricketwireless.net
+
 Google Fi (Project Fi): number@msg.fi.google.com
+
 U.S. Cellular: number@mms.uscc.net
+
 
 ### Support or Contact
 
