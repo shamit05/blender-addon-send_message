@@ -1,37 +1,75 @@
-## Welcome to GitHub Pages
+## How to Setup Addon
+Please note this guide only works on blender 2.8 or newer
 
-You can use the [editor on GitHub](https://github.com/shamit05/blender-addon-send_message/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+First download the main addon file from [here](https://github.com/shamit05/blender-addon-send_message/blob/main/render_send_message_after_render.py)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Setting up Variables
 
-### Markdown
+First, setup all of the variables.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Open the main addon python file that you just downloaded in a text editor and edit the variables on lines 13-16 (fromaddr, frompassword, toaddr, and tempRenderPath)
 
-```markdown
-Syntax highlighted code block
+fromaddr: This is the email address you will be sending the email from. The email will have to be a gmail account and can either be an existing one or you can create a new one. We will go over setting up this email address to actually be able to send the message to another email/phone number in the next section
 
-# Header 1
-## Header 2
-### Header 3
+frompassword: This is the password for the email address you will be sending the email from. This will be stored only locally in the file and sent to google for verification. Again, if you don't feel "safe" saving your password you can setup a new gmail account just for this
 
-- Bulleted
-- List
+toaddr: This is the email you will actually be sending the message and image to. Please check out the sections below if you want to send it to a phone number.
 
-1. Numbered
-2. List
+tempRenderPath: When the render is finished it saves a super small sized image to this temporary path so that it can read it and send the image via the email later. This can be located basically almost anywhere on your computer but I like to personally keep it on my SSD to speed up write and read times.
 
-**Bold** and _Italic_ and `Code` text
+### Setting up Gmail Account
 
-[Link](url) and ![Image](src)
+To send the email you need to allow less secure apps. Again if you don't feel secure doing this please create a new gmail account.
+
+To allow this, go to this [link](https://myaccount.google.com/lesssecureapps) and then turn Allow Less Secure Apps to on
+
+### Setting up Addon Requirements
+
+This is the last thing we will have to setup
+
+First locate where blender is (example: C:\Program Files\Blender Foundation\Blender VERSION)
+
+Once inside the folder go to the following path: (BLENDER_VERSION -> python -> bin)
+
+Here you should find a python executable. If so, you located the correct directory.
+
+Next, open up windows powershell as administrator.
+
+Type in the following commands one by one:
+```
+cd "DIRECTORY WHICH WE LOCATED IN PREVIOUS STEP" # (example: cd "C:\Program Files\Blender Foundation\Blender 2.90\2.90\python\bin")
+.\python -m ensurepip --default-pip
+.\python -m pip install Pillow
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+That should be all the setup required.
 
-### Jekyll Themes
+### Actually installing the Addon
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/shamit05/blender-addon-send_message/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Next, go to blender -> edit -> preferences
+
+Afterwards, go to the Add-ons tab and click install Add-on. 
+
+Locate where the main addon file downloaded on your computer and click install the Add-on button.
+
+Lastly, check the button next to the addon to enable it.
+
+### Using the Addon
+
+To use the addon you can go the the search bar and select it. When rendering, instead of pressing F12 or render, do the following steps:
+
+F3 (Search Bar) -> render.send_message -> Click to start rendering
+
+However, for ease of use, you can assign a shortcut to it.
+
+F3 (Search Bar) -> render.send_message -> Right Click -> Assing_Shortcut -> Press a key(s) to assign the shortcut to
+
+Note: I highly recommend assigning the shortcut to CMD F12 as no other shortcut uses it and it will be familiar (F12 is used for rendering)
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Having trouble with the addon? Try checking the console for errors: 
+
+Window -> Toggle System Console
+
+If you can't solve the error even after checking the system console you can contact me through discord: @shamit0011#0731
